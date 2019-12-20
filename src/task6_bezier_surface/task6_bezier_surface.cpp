@@ -36,6 +36,7 @@ private:
 
   // Define our mesh as collection of faces
   std::vector<face> mesh;
+  std::vector<int> indices;
 
   // These will hold the data and object buffers
   GLuint vao, vbo, tbo, ibo;
@@ -43,7 +44,16 @@ private:
 
   glm::vec3 bezierPoint(const glm::vec3 controlPoints[4], float t) {
     // TODO: Compute 3D point on bezier curve
-    return {};
+
+    glm::vec3 a = lerp(controlPoints[0], controlPoints[1], t);
+    glm::vec3 b = lerp(controlPoints[1], controlPoints[2], t);
+    glm::vec3 c = lerp(controlPoints[2], controlPoints[3], t);
+
+    glm::vec3 d = lerp(a, b, t);
+    glm::vec3 e = lerp(b, c, t);
+
+    glm::vec3 f = lerp(d, e, t);
+    return {f};
   }
 
   ppgso::Shader program{texture_vert_glsl, texture_frag_glsl};
@@ -62,23 +72,30 @@ public:
       for (unsigned int j = 0; j < PATCH_SIZE; j++) {
         // TODO: Compute points on the bezier patch
         // HINT: Compute u, v coordinates
+          float u = i / (float)(PATCH_SIZE);
+          float v = j / (float)(PATCH_SIZE);
 
+        std::vector<glm::vec3> body;
+        for (int k = 0; k < 4; k++)
+          body.push_back(bezierPoint(controlPoints[k], u));
         // vertices.push_back(??);
+        vertices.push_back(bezierPoint(body.data(), v));
         // texCoords.push_back(??);
+        texCoords.push_back({u, 1-v});
       }
     }
     // Generate indices
     for(unsigned int i = 1; i < PATCH_SIZE; i++) {
       for (unsigned int j = 1; j < PATCH_SIZE; j++) {
         // TODO: Compute indices for triangle 1
-        // indices.push_back(??);
-        // indices.push_back(??);
-        // indices.push_back(??);
+          indices.push_back((i - 1) * PATCH_SIZE + (j - 1));
+          indices.push_back(i * PATCH_SIZE + j);
+          indices.push_back((i - 1) * PATCH_SIZE + j);
 
-        // TODO: Compute indices for triangle 2
-        // indices.push_back(??);
-        // indices.push_back(??);
-        // indices.push_back(??);
+          // TODO: Compute indices for triangle 2
+          indices.push_back((i - 1) * PATCH_SIZE + (j - 1));
+          indices.push_back((i * PATCH_SIZE + (j - 1)));
+          indices.push_back(i * PATCH_SIZE + j);
       }
     }
 
@@ -109,7 +126,7 @@ public:
     // Copy indices to gpu
     glGenBuffers(1, &ibo);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, mesh.size() * sizeof(face), mesh.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(int), indices.data(), GL_STATIC_DRAW);
 
   };
   // Clean up
@@ -124,6 +141,12 @@ public:
   void update() {
     // TODO: Compute transformation by scaling, rotating and then translating the shape
     // modelMatrix = ??
+      modelMatrix = glm::mat4{1};
+      modelMatrix = glm::scale(modelMatrix, scale);
+      modelMatrix = glm::rotate(modelMatrix, rotation.x, {0, 1, 0});
+      modelMatrix = glm::rotate(modelMatrix, rotation.y, {0, 1, 0});
+      modelMatrix = glm::rotate(modelMatrix, rotation.z, {0, 1, 0});
+      modelMatrix = glm::translate(modelMatrix, position);
   }
 
   // Draw polygons
@@ -151,6 +174,8 @@ public:
     glBindVertexArray(vao);
     // TODO: Use correct rendering mode to draw the result
     //glDrawElements(??);
+      glDrawElements(GL_TRIANGLES, (GLsizei) indices.size() * 3, GL_UNSIGNED_INT , 0);
+
   };
 };
 
@@ -171,7 +196,7 @@ public:
     // Enable Z-buffer
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LEQUAL);
-    //glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+//    glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
   }
 
   void onIdle() final {

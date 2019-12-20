@@ -26,6 +26,9 @@ public:
    */
   Player();
 
+  glm::vec3 direction{0,0,0};
+
+
   /*!
    * Update player position considering keyboard inputs
    * @param scene Scene to update
@@ -46,5 +49,7 @@ public:
    * @param scene
    */
   void onClick(Scene &scene) override ;
+
+  bool isOutOfMap();
 };
 

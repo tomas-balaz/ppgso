@@ -19,10 +19,13 @@ Player::Player() {
   // Initialize static resources if needed
   if (!shader) shader = std::make_unique<ppgso::Shader>(diffuse_vert_glsl, diffuse_frag_glsl);
   if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("corsair.bmp"));
-  if (!mesh) mesh = std::make_unique<ppgso::Mesh>("corsair.obj");
+  if (!mesh) mesh = std::make_unique<ppgso::Mesh>(R"(C:\Users\tomas\Documents\FIIT\5.semester\ppgso\data\jazdec.obj)");
 }
 
 bool Player::update(Scene &scene, float dt) {
+
+   float speed = 20 * dt;
+
   // Fire delay increment
   fireDelay += dt;
 
@@ -50,13 +53,30 @@ bool Player::update(Scene &scene, float dt) {
 
   // Keyboard controls
   if(scene.keyboard[GLFW_KEY_LEFT]) {
-    position.x += 10 * dt;
-    rotation.z = -ppgso::PI/4.0f;
+    direction = {1, 0, 0};
+    rotation.y = -ppgso::PI/2.0f;
   } else if(scene.keyboard[GLFW_KEY_RIGHT]) {
-    position.x -= 10 * dt;
-    rotation.z = ppgso::PI/4.0f;
-  } else {
-    rotation.z = 0;
+      direction = {-1, 0, 0};
+    rotation.y = ppgso::PI/2.0f;
+  } else if(scene.keyboard[GLFW_KEY_DOWN]) {
+      direction = {0, -1, 0};
+      rotation.y = -ppgso::PI;
+  } else if(scene.keyboard[GLFW_KEY_UP]) {
+      direction = {0, 1, 0};
+      rotation.y = ppgso::PI*2.0f;
+  }
+
+  position += direction * speed;
+
+  if (isOutOfMap()) {
+      direction = {0, 0, 0};
+      auto explosion = std::make_unique<Explosion>();
+      explosion->position = position;
+      explosion->scale = scale * 3.0f;
+      scene.objects.push_back(move(explosion));
+
+      // Die
+      return false;
   }
 
   // Firing projectiles
@@ -93,4 +113,8 @@ void Player::render(Scene &scene) {
 
 void Player::onClick(Scene &scene) {
   std::cout << "Player has been clicked!" << std::endl;
+}
+
+bool Player::isOutOfMap() {
+    return abs(position.x) > 35 or abs(position.y) > 35;
 }

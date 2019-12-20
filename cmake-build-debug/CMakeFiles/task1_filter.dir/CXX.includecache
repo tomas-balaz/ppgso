@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/task1_filter/task1_filter.cpp
+fstream
+-
+iostream
+-
+_bsd_types.h
+-
+

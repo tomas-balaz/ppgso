@@ -1454,6 +1454,12 @@
 		<Unit filename="C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/camera.h">
 			<Option target="gl9_scene"/>
 		</Unit>
+		<Unit filename="C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/cycle_shadow.cpp">
+			<Option target="gl9_scene"/>
+		</Unit>
+		<Unit filename="C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/cycle_shadow.h">
+			<Option target="gl9_scene"/>
+		</Unit>
 		<Unit filename="C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/explosion.cpp">
 			<Option target="gl9_scene"/>
 		</Unit>

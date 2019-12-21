@@ -3,6 +3,7 @@
 #include "asteroid.h"
 #include "projectile.h"
 #include "explosion.h"
+#include "cycle_shadow.h"
 
 #include <shaders/diffuse_vert_glsl.h>
 #include <shaders/diffuse_frag_glsl.h>
@@ -86,6 +87,18 @@ bool Player::update(Scene &scene, float dt) {
       obj->position = position + (-direction*.03f);
 //      obj->scale += abs(direction)*2.f;
       scene.objects.push_back(move(obj));
+
+//    auto shd = std::make_unique<CycleShadow>();
+//    shd->position.x = position.x;
+//    shd->position.y = position.y;
+//    if (glm::length(direction.x) == 1.0f) {
+//      shd->scale = glm::vec3{.9f, .2f, .1f};
+//    }
+//    else if (glm::length(direction.y) == 1.0f) {
+//      shd->scale = scale = glm::vec3{.2f, .9f, .1f};
+//    }
+//
+//    scene.objects.push_back(move(shd));
   }
 
   // Firing projectiles

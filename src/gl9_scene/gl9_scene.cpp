@@ -18,6 +18,7 @@
 #include "player.h"
 #include "space.h"
 #include "player2.h"
+#include "cycle_shadow.h"
 
 const unsigned int SIZE = 900;
 
@@ -54,6 +55,14 @@ private:
     auto player = std::make_unique<Player>();
 //    player->position.y = -6;
     player->position.y = 0;
+
+
+    auto player_shadow = std::make_unique<CycleShadow>();
+//    player->position.y = -6;
+    player_shadow->position = player->position;
+    player_shadow->position.z -= 2.f;
+    scene.objects.push_back(move(player_shadow));
+
     scene.objects.push_back(move(player));
 
     // Add player to the scene

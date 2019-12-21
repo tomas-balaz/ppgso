@@ -15,6 +15,8 @@ std::unique_ptr<ppgso::Shader> Player::shader;
 Player::Player() {
   // Scale the default model
   scale *= 3.0f;
+  position.x = 15.f;
+  position.z = 0.f;
 
   // Initialize static resources if needed
   if (!shader) shader = std::make_unique<ppgso::Shader>(diffuse_vert_glsl, diffuse_frag_glsl);

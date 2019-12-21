@@ -24,7 +24,7 @@ Player::Player() {
 
 bool Player::update(Scene &scene, float dt) {
 
-   float speed = 20 * dt;
+   float speed = 15.f * dt;
 
   // Fire delay increment
   fireDelay += dt;
@@ -81,7 +81,7 @@ bool Player::update(Scene &scene, float dt) {
 
   if (glm::length(direction) != 0) {
       auto obj = std::make_unique<Asteroid>();
-      obj->position = position + (-direction*.05f);
+      obj->position = position + (-direction*.03f);
 //      obj->scale += abs(direction)*2.f;
       scene.objects.push_back(move(obj));
   }

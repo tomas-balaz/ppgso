@@ -18,7 +18,7 @@
 #include "player.h"
 #include "space.h"
 
-const unsigned int SIZE = 512;
+const unsigned int SIZE = 900;
 
 /*!
  * Custom windows for our simple game
@@ -59,7 +59,7 @@ public:
   /*!
    * Construct custom game window
    */
-  SceneWindow() : Window{"gl9_scene", SIZE, SIZE} {
+  SceneWindow() : Window{"TRON", SIZE + 200, SIZE} {
     //hideCursor();
     glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
 

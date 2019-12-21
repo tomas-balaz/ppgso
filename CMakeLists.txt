@@ -172,7 +172,7 @@ add_executable(gl9_scene
         src/gl9_scene/player.cpp
         src/gl9_scene/projectile.cpp
         src/gl9_scene/explosion.cpp
-        src/gl9_scene/space.cpp)
+        src/gl9_scene/space.cpp src/gl9_scene/player2.cpp src/gl9_scene/player2.h)
 target_link_libraries(gl9_scene ppgso shaders)
 install(TARGETS gl9_scene DESTINATION .)
 

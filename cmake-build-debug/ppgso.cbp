@@ -1481,6 +1481,12 @@
 		<Unit filename="C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/player.h">
 			<Option target="gl9_scene"/>
 		</Unit>
+		<Unit filename="C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/player2.cpp">
+			<Option target="gl9_scene"/>
+		</Unit>
+		<Unit filename="C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/player2.h">
+			<Option target="gl9_scene"/>
+		</Unit>
 		<Unit filename="C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/projectile.cpp">
 			<Option target="gl9_scene"/>
 		</Unit>

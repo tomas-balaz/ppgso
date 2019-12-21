@@ -17,6 +17,7 @@
 #include "generator.h"
 #include "player.h"
 #include "space.h"
+#include "player2.h"
 
 const unsigned int SIZE = 900;
 
@@ -51,8 +52,15 @@ private:
 
     // Add player to the scene
     auto player = std::make_unique<Player>();
-    player->position.y = -6;
+//    player->position.y = -6;
+    player->position.y = 0;
     scene.objects.push_back(move(player));
+
+    // Add player to the scene
+    auto player2 = std::make_unique<Player2>();
+//    player2->position.y = -6;
+    player2->position.y = 0;
+    scene.objects.push_back(move(player2));
   }
 
 public:

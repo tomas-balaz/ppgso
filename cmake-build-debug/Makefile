@@ -1291,6 +1291,33 @@ src/gl9_scene/player.cpp.s:
 	$(MAKE) -f CMakeFiles\gl9_scene.dir\build.make CMakeFiles/gl9_scene.dir/src/gl9_scene/player.cpp.s
 .PHONY : src/gl9_scene/player.cpp.s
 
+src/gl9_scene/player2.obj: src/gl9_scene/player2.cpp.obj
+
+.PHONY : src/gl9_scene/player2.obj
+
+# target to build an object file
+src/gl9_scene/player2.cpp.obj:
+	$(MAKE) -f CMakeFiles\gl9_scene.dir\build.make CMakeFiles/gl9_scene.dir/src/gl9_scene/player2.cpp.obj
+.PHONY : src/gl9_scene/player2.cpp.obj
+
+src/gl9_scene/player2.i: src/gl9_scene/player2.cpp.i
+
+.PHONY : src/gl9_scene/player2.i
+
+# target to preprocess a source file
+src/gl9_scene/player2.cpp.i:
+	$(MAKE) -f CMakeFiles\gl9_scene.dir\build.make CMakeFiles/gl9_scene.dir/src/gl9_scene/player2.cpp.i
+.PHONY : src/gl9_scene/player2.cpp.i
+
+src/gl9_scene/player2.s: src/gl9_scene/player2.cpp.s
+
+.PHONY : src/gl9_scene/player2.s
+
+# target to generate assembly for a file
+src/gl9_scene/player2.cpp.s:
+	$(MAKE) -f CMakeFiles\gl9_scene.dir\build.make CMakeFiles/gl9_scene.dir/src/gl9_scene/player2.cpp.s
+.PHONY : src/gl9_scene/player2.cpp.s
+
 src/gl9_scene/projectile.obj: src/gl9_scene/projectile.cpp.obj
 
 .PHONY : src/gl9_scene/projectile.obj
@@ -1824,6 +1851,9 @@ help:
 	@echo ... src/gl9_scene/player.obj
 	@echo ... src/gl9_scene/player.i
 	@echo ... src/gl9_scene/player.s
+	@echo ... src/gl9_scene/player2.obj
+	@echo ... src/gl9_scene/player2.i
+	@echo ... src/gl9_scene/player2.s
 	@echo ... src/gl9_scene/projectile.obj
 	@echo ... src/gl9_scene/projectile.i
 	@echo ... src/gl9_scene/projectile.s

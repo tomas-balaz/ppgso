@@ -1,4 +1,4 @@
-#include "player.h"
+#include "player2.h"
 #include "scene.h"
 #include "asteroid.h"
 #include "projectile.h"
@@ -8,25 +8,25 @@
 #include <shaders/diffuse_frag_glsl.h>
 
 // shared resources
-std::unique_ptr<ppgso::Mesh> Player::mesh;
-std::unique_ptr<ppgso::Texture> Player::texture;
-std::unique_ptr<ppgso::Shader> Player::shader;
+std::unique_ptr<ppgso::Mesh> Player2::mesh;
+std::unique_ptr<ppgso::Texture> Player2::texture;
+std::unique_ptr<ppgso::Shader> Player2::shader;
 
-Player::Player() {
+Player2::Player2() {
   // Scale the default model
   scale *= 3.0f;
-  position.x = -15.f;
+  position.x = 15.f;
   position.z = 0.f;
 
   // Initialize static resources if needed
   if (!shader) shader = std::make_unique<ppgso::Shader>(diffuse_vert_glsl, diffuse_frag_glsl);
-  if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("corsair.bmp"));
+  if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP(R"(C:\Users\tomas\Documents\FIIT\5.semester\ppgso\data\corsair_blue.bmp)"));
   if (!mesh) mesh = std::make_unique<ppgso::Mesh>(R"(C:\Users\tomas\Documents\FIIT\5.semester\ppgso\data\jazdec.obj)");
 }
 
-bool Player::update(Scene &scene, float dt) {
+bool Player2::update(Scene &scene, float dt) {
 
-   float speed = 15.f * dt;
+  float speed = 15.f * dt;
 
   // Fire delay increment
   fireDelay += dt;
@@ -54,42 +54,42 @@ bool Player::update(Scene &scene, float dt) {
   }
 
   // Keyboard controls
-  if(scene.keyboard[GLFW_KEY_LEFT]) {
+  if(scene.keyboard[GLFW_KEY_A]) {
     direction = {1, 0, 0};
     rotation.y = -ppgso::PI/2.0f;
-  } else if(scene.keyboard[GLFW_KEY_RIGHT]) {
-      direction = {-1, 0, 0};
+  } else if(scene.keyboard[GLFW_KEY_D]) {
+    direction = {-1, 0, 0};
     rotation.y = ppgso::PI/2.0f;
-  } else if(scene.keyboard[GLFW_KEY_DOWN]) {
-      direction = {0, -1, 0};
-      rotation.y = -ppgso::PI;
-  } else if(scene.keyboard[GLFW_KEY_UP]) {
-      direction = {0, 1, 0};
-      rotation.y = ppgso::PI*2.0f;
+  } else if(scene.keyboard[GLFW_KEY_S]) {
+    direction = {0, -1, 0};
+    rotation.y = -ppgso::PI;
+  } else if(scene.keyboard[GLFW_KEY_W]) {
+    direction = {0, 1, 0};
+    rotation.y = ppgso::PI*2.0f;
   }
 
   position += direction * speed;
 
   if (isOutOfMap()) {
-      direction = {0, 0, 0};
-      auto explosion = std::make_unique<Explosion>();
-      explosion->position = position;
-      explosion->scale = scale * 3.0f;
-      scene.objects.push_back(move(explosion));
+    direction = {0, 0, 0};
+    auto explosion = std::make_unique<Explosion>();
+    explosion->position = position;
+    explosion->scale = scale * 3.0f;
+    scene.objects.push_back(move(explosion));
 
-      // Die
-      return false;
+    // Die
+    return false;
   }
 
   if (glm::length(direction) != 0) {
-      auto obj = std::make_unique<Asteroid>();
-      obj->position = position + (-direction*.03f);
-//      obj->scale += abs(direction)*2.f;
-      scene.objects.push_back(move(obj));
+    auto obj = std::make_unique<Asteroid>();
+    obj->position = position + (-direction*.03f);
+//    obj->scale += abs(direction)*2.f;
+    scene.objects.push_back(move(obj));
   }
 
   // Firing projectiles
-  if(scene.keyboard[GLFW_KEY_SPACE] && fireDelay > fireRate) {
+  if(scene.keyboard[GLFW_KEY_F] && fireDelay > fireRate) {
     // Reset fire delay
     fireDelay = 0;
     // Invert file offset
@@ -104,7 +104,7 @@ bool Player::update(Scene &scene, float dt) {
   return true;
 }
 
-void Player::render(Scene &scene) {
+void Player2::render(Scene &scene) {
   shader->use();
 
   // Set up light
@@ -120,10 +120,10 @@ void Player::render(Scene &scene) {
   mesh->render();
 }
 
-void Player::onClick(Scene &scene) {
+void Player2::onClick(Scene &scene) {
   std::cout << "Player has been clicked!" << std::endl;
 }
 
-bool Player::isOutOfMap() {
-    return abs(position.x) > 35 or abs(position.y) > 35;
+bool Player2::isOutOfMap() {
+  return abs(position.x) > 35 or abs(position.y) > 35;
 }

@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/gl9_scene.cpp" "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/cmake-build-debug/CMakeFiles/gl9_scene.dir/src/gl9_scene/gl9_scene.cpp.obj"
   "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/object.cpp" "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/cmake-build-debug/CMakeFiles/gl9_scene.dir/src/gl9_scene/object.cpp.obj"
   "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/player.cpp" "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/cmake-build-debug/CMakeFiles/gl9_scene.dir/src/gl9_scene/player.cpp.obj"
+  "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/player2.cpp" "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/cmake-build-debug/CMakeFiles/gl9_scene.dir/src/gl9_scene/player2.cpp.obj"
   "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/projectile.cpp" "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/cmake-build-debug/CMakeFiles/gl9_scene.dir/src/gl9_scene/projectile.cpp.obj"
   "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/scene.cpp" "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/cmake-build-debug/CMakeFiles/gl9_scene.dir/src/gl9_scene/scene.cpp.obj"
   "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/space.cpp" "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/cmake-build-debug/CMakeFiles/gl9_scene.dir/src/gl9_scene/space.cpp.obj"

@@ -1,8 +1,6 @@
 C:\Users\tomas\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\192.6603.37\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\tomas\Documents\FIIT\5.semester\ppgso
 -- Found GLFW3: C:/Users/tomas/Documents/FIIT/5.semester/ppgso/dependencies/lib/mingw/libglfw3.a
 -- GLM_INCLUDE_DIR = C:/Users/tomas/Documents/FIIT/5.semester/ppgso/dependencies/include
--- Found OpenMP_CXX: -fopenmp  
--- Found OpenMP: TRUE   
 -- Configuring done
 -- Generating done
 -- Build files have been written to: C:/Users/tomas/Documents/FIIT/5.semester/ppgso/cmake-build-debug

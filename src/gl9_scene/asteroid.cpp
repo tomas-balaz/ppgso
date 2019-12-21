@@ -14,15 +14,15 @@ std::unique_ptr<ppgso::Shader> Asteroid::shader;
 
 Asteroid::Asteroid() {
   // Set random scale speed and rotation
-  scale *= glm::linearRand(1.0f, 3.0f);
-  speed = {glm::linearRand(-2.0f, 2.0f), glm::linearRand(-5.0f, -10.0f), 0.0f};
-  rotation = glm::ballRand(ppgso::PI);
-  rotMomentum = glm::ballRand(ppgso::PI);
+  scale = glm::vec3{.5, .5, 5.};
+//  speed = {glm::linearRand(-2.0f, 2.0f), glm::linearRand(-5.0f, -10.0f), 0.0f};
+//  rotation = glm::ballRand(ppgso::PI);
+//  rotMomentum = glm::ballRand(ppgso::PI);
 
   // Initialize static resources if needed
   if (!shader) shader = std::make_unique<ppgso::Shader>(diffuse_vert_glsl, diffuse_frag_glsl);
-  if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("asteroid.bmp"));
-  if (!mesh) mesh = std::make_unique<ppgso::Mesh>("asteroid.obj");
+  if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP(R"(C:\Users\tomas\Documents\FIIT\5.semester\ppgso\data\lux.bmp)"));
+  if (!mesh) mesh = std::make_unique<ppgso::Mesh>("cube.obj");
 }
 
 bool Asteroid::update(Scene &scene, float dt) {
@@ -30,13 +30,13 @@ bool Asteroid::update(Scene &scene, float dt) {
   age += dt;
 
   // Animate position according to time
-  position += speed * dt;
+//  position += speed * dt;
 
   // Rotate the object
-  rotation += rotMomentum * dt;
+//  rotation += rotMomentum * dt;
 
   // Delete when alive longer than 10s or out of visibility
-  if (age > 10.0f || position.y < -10) return false;
+  if (age > 15.0f) return false;
 
   // Collide with scene
   for (auto &obj : scene.objects) {
@@ -46,7 +46,8 @@ bool Asteroid::update(Scene &scene, float dt) {
     // We only need to collide with asteroids and projectiles, ignore other objects
     auto asteroid = dynamic_cast<Asteroid*>(obj.get()); // dynamic_pointer_cast<Asteroid>(obj);
     auto projectile = dynamic_cast<Projectile*>(obj.get()); //dynamic_pointer_cast<Projectile>(obj);
-    if (!asteroid && !projectile) continue;
+//    if (!asteroid && !projectile) continue;
+    if (!projectile) continue;
 
     // When colliding with other asteroids make sure the object is older than .5s
     // This prevents excessive collisions when asteroids explode.

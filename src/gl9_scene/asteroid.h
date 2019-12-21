@@ -19,10 +19,7 @@ private:
   static std::unique_ptr<ppgso::Shader> shader;
   static std::unique_ptr<ppgso::Texture> texture;
 
-  // Age of the object in seconds
-  float age{0.0f};
-
-  // Speed and rotational momentum
+    // Speed and rotational momentum
   glm::vec3 speed;
   glm::vec3 rotMomentum;
 
@@ -61,6 +58,8 @@ public:
    */
   void onClick(Scene &scene) override;
 
+// Age of the object in seconds
+float age{0.0f};
 private:
 };
 

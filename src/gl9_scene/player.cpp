@@ -39,7 +39,7 @@ bool Player::update(Scene &scene, float dt) {
     auto asteroid = dynamic_cast<Asteroid*>(obj.get());
     if (!asteroid) continue;
 
-    if (distance(position, asteroid->position) < asteroid->scale.y) {
+    if (distance(position, asteroid->position) < asteroid->scale.y && asteroid->age > .3) {
       // Explode
       auto explosion = std::make_unique<Explosion>();
       explosion->position = position;
@@ -77,6 +77,13 @@ bool Player::update(Scene &scene, float dt) {
 
       // Die
       return false;
+  }
+
+  if (glm::length(direction) != 0) {
+      auto obj = std::make_unique<Asteroid>();
+      obj->position = position + (-direction*.05f);
+//      obj->scale += abs(direction)*2.f;
+      scene.objects.push_back(move(obj));
   }
 
   // Firing projectiles

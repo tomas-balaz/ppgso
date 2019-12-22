@@ -1229,6 +1229,7 @@ CMakeFiles/gl9_scene.dir/src/gl9_scene/player2.cpp.obj: ../ppgso/tiny_obj_loader
 CMakeFiles/gl9_scene.dir/src/gl9_scene/player2.cpp.obj: ../ppgso/window.h
 CMakeFiles/gl9_scene.dir/src/gl9_scene/player2.cpp.obj: ../src/gl9_scene/asteroid.h
 CMakeFiles/gl9_scene.dir/src/gl9_scene/player2.cpp.obj: ../src/gl9_scene/camera.h
+CMakeFiles/gl9_scene.dir/src/gl9_scene/player2.cpp.obj: ../src/gl9_scene/cube.h
 CMakeFiles/gl9_scene.dir/src/gl9_scene/player2.cpp.obj: ../src/gl9_scene/explosion.h
 CMakeFiles/gl9_scene.dir/src/gl9_scene/player2.cpp.obj: ../src/gl9_scene/object.h
 CMakeFiles/gl9_scene.dir/src/gl9_scene/player2.cpp.obj: ../src/gl9_scene/player.h

@@ -6,7 +6,7 @@
 #include "scene.h"
 #include "object.h"
 
-class Star final : public Object {
+class Cube final : public Object {
 private:
     // Static resources (Shared between instances)
     static std::unique_ptr<ppgso::Mesh> mesh;
@@ -22,7 +22,7 @@ public:
     /*!
      * Create new asteroid
      */
-    Star();
+    Cube();
 
     /*!
      * Update asteroid

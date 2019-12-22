@@ -12,6 +12,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/gl9_scene.dir/src/gl9_scene/player2.cpp.obj"
   "CMakeFiles/gl9_scene.dir/src/gl9_scene/cycle_shadow.cpp.obj"
   "CMakeFiles/gl9_scene.dir/src/gl9_scene/star.cpp.obj"
+  "CMakeFiles/gl9_scene.dir/src/gl9_scene/cube.cpp.obj"
   "gl9_scene.pdb"
   "gl9_scene.exe"
   "gl9_scene.exe.manifest"

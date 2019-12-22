@@ -54,5 +54,7 @@ protected:
    * Generate modelMatrix from position, rotation and scale
    */
   void generateModelMatrix();
+  void generateModelMatrix2(Scene &scene);
+  void generateModelMatrix3(Scene &scene);
 };
 

@@ -1156,6 +1156,33 @@ src/gl9_scene/camera.cpp.s:
 	$(MAKE) -f CMakeFiles\gl9_scene.dir\build.make CMakeFiles/gl9_scene.dir/src/gl9_scene/camera.cpp.s
 .PHONY : src/gl9_scene/camera.cpp.s
 
+src/gl9_scene/cube.obj: src/gl9_scene/cube.cpp.obj
+
+.PHONY : src/gl9_scene/cube.obj
+
+# target to build an object file
+src/gl9_scene/cube.cpp.obj:
+	$(MAKE) -f CMakeFiles\gl9_scene.dir\build.make CMakeFiles/gl9_scene.dir/src/gl9_scene/cube.cpp.obj
+.PHONY : src/gl9_scene/cube.cpp.obj
+
+src/gl9_scene/cube.i: src/gl9_scene/cube.cpp.i
+
+.PHONY : src/gl9_scene/cube.i
+
+# target to preprocess a source file
+src/gl9_scene/cube.cpp.i:
+	$(MAKE) -f CMakeFiles\gl9_scene.dir\build.make CMakeFiles/gl9_scene.dir/src/gl9_scene/cube.cpp.i
+.PHONY : src/gl9_scene/cube.cpp.i
+
+src/gl9_scene/cube.s: src/gl9_scene/cube.cpp.s
+
+.PHONY : src/gl9_scene/cube.s
+
+# target to generate assembly for a file
+src/gl9_scene/cube.cpp.s:
+	$(MAKE) -f CMakeFiles\gl9_scene.dir\build.make CMakeFiles/gl9_scene.dir/src/gl9_scene/cube.cpp.s
+.PHONY : src/gl9_scene/cube.cpp.s
+
 src/gl9_scene/cycle_shadow.obj: src/gl9_scene/cycle_shadow.cpp.obj
 
 .PHONY : src/gl9_scene/cycle_shadow.obj
@@ -1890,6 +1917,9 @@ help:
 	@echo ... src/gl9_scene/camera.obj
 	@echo ... src/gl9_scene/camera.i
 	@echo ... src/gl9_scene/camera.s
+	@echo ... src/gl9_scene/cube.obj
+	@echo ... src/gl9_scene/cube.i
+	@echo ... src/gl9_scene/cube.s
 	@echo ... src/gl9_scene/cycle_shadow.obj
 	@echo ... src/gl9_scene/cycle_shadow.i
 	@echo ... src/gl9_scene/cycle_shadow.s

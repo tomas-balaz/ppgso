@@ -6,6 +6,7 @@
 #include "cycle_shadow.h"
 #include "player2.h"
 #include "star.h"
+#include "cube.h"
 
 #include <shaders/diffuse_vert_glsl.h>
 #include <shaders/diffuse_frag_glsl.h>
@@ -78,7 +79,14 @@ bool Player::update(Scene &scene, float dt) {
       //create star object -> unique pointer
       auto star = std::make_unique<Star>();
       star->position = position;
-      star->position.z -= 5.f;
+      star->position.z -= 10.f;
+
+
+      auto cube = std::make_unique<Cube>();
+//      cube->position = star->position;
+      cube->position.z -= 10.f;
+      scene.objects.push_back(move(cube));
+
       scene.objects.push_back(move(star));
     }
   }

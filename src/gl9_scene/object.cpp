@@ -12,3 +12,19 @@ void Object::generateModelMatrix() {
           * glm::orientate4(rotation)
           * glm::scale(glm::mat4(1.0f), scale);
 }
+
+void Object::generateModelMatrix2(Scene &scene) {
+  modelMatrix =
+          glm::translate(glm::mat4(1.0f), position) *
+          glm::orientate4(rotation) *
+          glm::translate(glm::mat4(1.0f), {1.4,1.4,1.4}) *
+          glm::scale(glm::mat4(1.0f),scale);
+}
+
+void Object::generateModelMatrix3(Scene &scene) {
+  modelMatrix =
+          glm::translate(glm::mat4(1.0f), position) *
+          glm::orientate4(rotation) *
+          glm::translate(glm::mat4(1.0f), {1.6,1.6,1.6}) *
+          glm::scale(glm::mat4(1.0f),scale);
+}

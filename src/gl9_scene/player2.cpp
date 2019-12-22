@@ -77,7 +77,7 @@ bool Player2::update(Scene &scene, float dt) {
       //create star object -> unique pointer
       auto star = std::make_unique<Star>();
       star->position = position;
-      star->position.z -= 5.f;
+      star->position.z -= 10.f;
       scene.objects.push_back(move(star));
     }
   }

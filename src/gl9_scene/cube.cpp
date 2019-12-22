@@ -1,31 +1,32 @@
 
-#include "star.h"
+#include "cube.h"
 
 #include <glm/gtc/random.hpp>
 #include "player.h"
 #include "player2.h"
+#include "star.h"
 
 #include <shaders/diffuse_vert_glsl.h>
 #include <shaders/diffuse_frag_glsl.h>
 
 
 // Static resources
-std::unique_ptr<ppgso::Mesh> Star::mesh;
-std::unique_ptr<ppgso::Texture> Star::texture;
-std::unique_ptr<ppgso::Shader> Star::shader;
+std::unique_ptr<ppgso::Mesh> Cube::mesh;
+std::unique_ptr<ppgso::Texture> Cube::texture;
+std::unique_ptr<ppgso::Shader> Cube::shader;
 
-Star::Star(){
+Cube::Cube(){
   // Set random scale speed
-  scale = glm::vec3{.4f, .9f, .3f};
+  scale = glm::vec3{1.f, 1.f, 1.f};
 
 
   // Initialize static resources if needed
   if (!shader) shader = std::make_unique<ppgso::Shader>(diffuse_vert_glsl, diffuse_frag_glsl);
   if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP(R"(C:\Users\tomas\Documents\FIIT\5.semester\ppgso\data\star_texture.bmp)"));
-  if (!mesh) mesh = std::make_unique<ppgso::Mesh>(R"(C:\Users\tomas\Documents\FIIT\5.semester\ppgso\data\star1.obj)");
+  if (!mesh) mesh = std::make_unique<ppgso::Mesh>("cube.obj");
 }
 
-bool Star::update(Scene &scene, float dt) {
+bool Cube::update(Scene &scene, float dt) {
   // Count time alive
   age += dt;
 
@@ -39,33 +40,27 @@ bool Star::update(Scene &scene, float dt) {
     if (obj.get() == this)
       continue;
 
-    auto player1 = dynamic_cast<Player*>(obj.get());
-    auto player2 = dynamic_cast<Player2*>(obj.get());
-    if (!player1 && !player2) continue;
+    auto star = dynamic_cast<Star*>(obj.get());
+    if (!star) continue;
 
-    if (player1) {
-     found = true;
-     position.x = player1->position.x;
-     position.y = player1->position.y;
-     rotation.y += ppgso::PI * dt;
-    }
-    else {
-      found = true;
-      position.x = player2->position.x;
-      position.y = player2->position.y;
-      rotation.y += ppgso::PI * dt;
-    }
+    found = true;
+    position.x = star->position.x;
+    position.y = star->position.y;
+    rotation.x -= ppgso::PI * dt;
+    rotation.y -= ppgso::PI * dt;
+
+
   }
 
   if (!found) return false;
 
   // Generate modelMatrix from position, rotation and scale
-  generateModelMatrix2(scene);
+  generateModelMatrix3(scene);
 
   return true;
 }
 
-void Star::render(Scene &scene) {
+void Cube::render(Scene &scene) {
   shader->use();
 
   // Set up light

@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/asteroid.cpp" "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/cmake-build-debug/CMakeFiles/gl9_scene.dir/src/gl9_scene/asteroid.cpp.obj"
   "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/camera.cpp" "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/cmake-build-debug/CMakeFiles/gl9_scene.dir/src/gl9_scene/camera.cpp.obj"
+  "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/cube.cpp" "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/cmake-build-debug/CMakeFiles/gl9_scene.dir/src/gl9_scene/cube.cpp.obj"
   "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/cycle_shadow.cpp" "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/cmake-build-debug/CMakeFiles/gl9_scene.dir/src/gl9_scene/cycle_shadow.cpp.obj"
   "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/explosion.cpp" "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/cmake-build-debug/CMakeFiles/gl9_scene.dir/src/gl9_scene/explosion.cpp.obj"
   "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/generator.cpp" "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/cmake-build-debug/CMakeFiles/gl9_scene.dir/src/gl9_scene/generator.cpp.obj"

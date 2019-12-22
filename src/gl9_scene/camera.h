@@ -3,6 +3,8 @@
 
 #include <glm/glm.hpp>
 #include <ppgso/ppgso.h>
+//#include "scene.h"
+
 
 /*!
  * Simple camera object that keeps track of viewMatrix and projectionMatrix
@@ -18,6 +20,8 @@ public:
   glm::mat4 viewMatrix;
   glm::mat4 projectionMatrix;
 
+  bool focus_player = false;
+
   /*!
    * Create new Camera that will generate viewMatrix and projectionMatrix based on its position, up and back vectors
    * @param fow - Field of view in degrees
@@ -31,6 +35,7 @@ public:
    * Update Camera viewMatrix based on up, position and back vectors
    */
   void update();
+//  void update(Scene &scene, float dt);
 
   /*!
    * Get direction vector in world coordinates through camera projection plane

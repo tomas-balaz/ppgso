@@ -246,6 +246,8 @@ CMakeFiles/gl9_scene.dir/src/gl9_scene/camera.cpp.obj
  ../ppgso/window.h
  C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/camera.cpp
  C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/camera.h
+ C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/object.h
+ C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/player.h
 CMakeFiles/gl9_scene.dir/src/gl9_scene/cube.cpp.obj
  ..//ppgso/ppgso.h
  ../dependencies/include/GL/glew.h

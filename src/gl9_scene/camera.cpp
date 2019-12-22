@@ -1,6 +1,7 @@
 #include <glm/glm.hpp>
 
 #include "camera.h"
+#include "player.h"
 
 
 Camera::Camera(float fow, float ratio, float near, float far) {
@@ -9,8 +10,34 @@ Camera::Camera(float fow, float ratio, float near, float far) {
   projectionMatrix = glm::perspective(fowInRad, ratio, near, far);
 }
 
+//void Camera::update(Scene &scene, float dt) {
 void Camera::update() {
-  viewMatrix = lookAt(position, position-back, up);
+  if (focus_player) {
+
+//    for ( auto& obj : scene.objects ) {
+//      auto player1 = dynamic_cast<Player*>(obj.get());
+//      if (!player1) continue;
+//
+//      glm::vec3 cameraPos = player1->position;
+//      cameraPos += player1->direction * -20.f;
+//      cameraPos.z = -30.f;
+//
+//      glm::vec3 cameraTarget = player1->position;
+//      glm::vec3 cameraDirection = glm::normalize(cameraPos - cameraTarget);
+//      glm::vec3 cameraRight = glm::normalize(glm::cross(up, cameraDirection));
+//      glm::vec3 cameraUp = glm::cross(cameraDirection, cameraRight);
+//
+//      viewMatrix = lookAt(cameraPos, cameraDirection, cameraUp);
+//
+//      break;
+//    }
+  }
+  else {
+    viewMatrix = lookAt(position, position - back, up);
+  }
+
+
+
 }
 
 glm::vec3 Camera::cast(double u, double v) {

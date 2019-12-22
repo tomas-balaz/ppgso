@@ -72,6 +72,8 @@ private:
     scene.objects.push_back(move(player2));
   }
 
+
+
 public:
   /*!
    * Construct custom game window
@@ -112,6 +114,76 @@ public:
     if (key == GLFW_KEY_P && action == GLFW_PRESS) {
       animate = !animate;
     }
+
+    if (scene.keyboard[GLFW_KEY_C]) {
+      scene.camera->position = glm::vec3(0, 0, -65.f);
+      scene.camera->back = glm::vec3(0, 0, -1.f);
+    }
+    if (scene.keyboard[GLFW_KEY_X]) {
+      scene.camera->position = glm::vec3(-16.4f, -30.f, -65.f);
+      scene.camera->back = glm::vec3(-.168f, -.336f, -1.f);
+    }
+    if (scene.keyboard[GLFW_KEY_Z]) {
+      scene.camera->position = glm::vec3(-22.8f, -30.f, -65.f);
+      scene.camera->back = glm::vec3(-.168f, -.336f, -.72699f);
+    }
+//
+//    if (scene.keyboard[GLFW_KEY_K]) {
+//      glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+//      glm::vec3 cameraTarget = glm::vec3(0.0f, 0.0f, 0.0f);
+//      glm::vec3 cameraDirection = glm::normalize(cameraPos - cameraTarget);
+//      glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f);
+//      glm::vec3 cameraRight = glm::normalize(glm::cross(up, cameraDirection));
+//      glm::vec3 cameraUp = glm::cross(cameraDirection, cameraRight);
+//
+//      glm::mat4 view;
+//      view = glm::lookAt(cameraPos,
+//                         cameraTarget,
+//                         up);
+//
+//    }
+//    if (scene.keyboard[GLFW_KEY_L]) {
+//      scene.camera->focus_player = true;
+//    }
+
+    if (scene.keyboard[GLFW_KEY_I]) {
+      scene.camera->position.y += .4f;
+    }
+    if (scene.keyboard[GLFW_KEY_J]) {
+      scene.camera->position.x += .4f;
+    }
+    if (scene.keyboard[GLFW_KEY_K]) {
+      scene.camera->position.y -= .4f;
+    }
+    if (scene.keyboard[GLFW_KEY_L]) {
+      scene.camera->position.x -= .4f;
+    }
+    if (scene.keyboard[GLFW_KEY_M]) {
+      scene.camera->position.z += .4f;
+    }
+    if (scene.keyboard[GLFW_KEY_N]) {
+      scene.camera->position.z -= .4f;
+    }
+    if (scene.keyboard[GLFW_KEY_LEFT_BRACKET]) {
+      scene.camera->back.y -= .007f;
+    }
+    if (scene.keyboard[GLFW_KEY_APOSTROPHE]) {
+      scene.camera->back.y += .007f;
+    }
+    if (scene.keyboard[GLFW_KEY_SEMICOLON]) {
+      scene.camera->back.x += .007f;
+    }
+    if (scene.keyboard[GLFW_KEY_BACKSLASH]) {
+      scene.camera->back.x -= .007f;
+    }
+    if (scene.keyboard[GLFW_KEY_SLASH]) {
+      scene.camera->back.z += .007f;
+    }
+    if (scene.keyboard[GLFW_KEY_PERIOD]) {
+      scene.camera->back.z -= .007f;
+    }
+//    std::cout << "pos" << scene.camera->position.x << "|" << scene.camera->position.y << "|" << scene.camera->position.z << " back" << scene.camera->back.x << "|" << scene.camera->back.y << "|" << scene.camera->back.z << "\n";
+
   }
 
   /*!

@@ -245,6 +245,8 @@ CMakeFiles/gl9_scene.dir/src/gl9_scene/camera.cpp.obj: ../ppgso/tiny_obj_loader.
 CMakeFiles/gl9_scene.dir/src/gl9_scene/camera.cpp.obj: ../ppgso/window.h
 CMakeFiles/gl9_scene.dir/src/gl9_scene/camera.cpp.obj: ../src/gl9_scene/camera.cpp
 CMakeFiles/gl9_scene.dir/src/gl9_scene/camera.cpp.obj: ../src/gl9_scene/camera.h
+CMakeFiles/gl9_scene.dir/src/gl9_scene/camera.cpp.obj: ../src/gl9_scene/object.h
+CMakeFiles/gl9_scene.dir/src/gl9_scene/camera.cpp.obj: ../src/gl9_scene/player.h
 
 CMakeFiles/gl9_scene.dir/src/gl9_scene/cube.cpp.obj: ../ppgso/ppgso.h
 CMakeFiles/gl9_scene.dir/src/gl9_scene/cube.cpp.obj: ../dependencies/include/GL/glew.h

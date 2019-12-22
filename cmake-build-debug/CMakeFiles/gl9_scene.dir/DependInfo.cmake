@@ -16,6 +16,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/projectile.cpp" "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/cmake-build-debug/CMakeFiles/gl9_scene.dir/src/gl9_scene/projectile.cpp.obj"
   "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/scene.cpp" "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/cmake-build-debug/CMakeFiles/gl9_scene.dir/src/gl9_scene/scene.cpp.obj"
   "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/space.cpp" "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/cmake-build-debug/CMakeFiles/gl9_scene.dir/src/gl9_scene/space.cpp.obj"
+  "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/star.cpp" "C:/Users/tomas/Documents/FIIT/5.semester/ppgso/cmake-build-debug/CMakeFiles/gl9_scene.dir/src/gl9_scene/star.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

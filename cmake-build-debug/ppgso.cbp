@@ -1511,6 +1511,12 @@
 		<Unit filename="C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/space.h">
 			<Option target="gl9_scene"/>
 		</Unit>
+		<Unit filename="C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/star.cpp">
+			<Option target="gl9_scene"/>
+		</Unit>
+		<Unit filename="C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/gl9_scene/star.h">
+			<Option target="gl9_scene"/>
+		</Unit>
 		<Unit filename="C:/Users/tomas/Documents/FIIT/5.semester/ppgso/src/playground/playground.cpp">
 			<Option target="playground"/>
 		</Unit>

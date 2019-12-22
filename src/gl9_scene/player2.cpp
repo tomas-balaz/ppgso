@@ -3,6 +3,8 @@
 #include "asteroid.h"
 #include "projectile.h"
 #include "explosion.h"
+#include "player.h"
+#include "star.h"
 
 #include <shaders/diffuse_vert_glsl.h>
 #include <shaders/diffuse_frag_glsl.h>
@@ -50,6 +52,33 @@ bool Player2::update(Scene &scene, float dt) {
 
       // Die
       return false;
+    }
+  }
+
+  if (opponent_alive)
+  {
+    bool opponent_found = false;
+
+    for ( auto& obj : scene.objects ) {
+      // Ignore self in scene
+      if (obj.get() == this)
+        continue;
+
+      auto p = dynamic_cast<Player*>(obj.get());
+      if (!p) continue;
+
+      opponent_found = true;
+    }
+
+    if (!opponent_found) {
+//      std::cout << "Player 2 wins!" << std::endl;
+      opponent_alive = false;
+
+      //create star object -> unique pointer
+      auto star = std::make_unique<Star>();
+      star->position = position;
+      star->position.z -= 5.f;
+      scene.objects.push_back(move(star));
     }
   }
 

@@ -1,31 +1,31 @@
 
-#include "cycle_shadow.h"
+#include "star.h"
 
 #include <glm/gtc/random.hpp>
 #include "player.h"
-#include "projectile.h"
+#include "player2.h"
 
 #include <shaders/diffuse_vert_glsl.h>
 #include <shaders/diffuse_frag_glsl.h>
 
 
 // Static resources
-std::unique_ptr<ppgso::Mesh> CycleShadow::mesh;
-std::unique_ptr<ppgso::Texture> CycleShadow::texture;
-std::unique_ptr<ppgso::Shader> CycleShadow::shader;
+std::unique_ptr<ppgso::Mesh> Star::mesh;
+std::unique_ptr<ppgso::Texture> Star::texture;
+std::unique_ptr<ppgso::Shader> Star::shader;
 
-CycleShadow::CycleShadow(){
+Star::Star(){
   // Set random scale speed
-  scale = glm::vec3{.2f, .9f, .1f};
+  scale = glm::vec3{.4f, .9f, .3f};
 
 
   // Initialize static resources if needed
   if (!shader) shader = std::make_unique<ppgso::Shader>(diffuse_vert_glsl, diffuse_frag_glsl);
-  if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP(R"(C:\Users\tomas\Documents\FIIT\5.semester\ppgso\data\shadow_color.bmp)"));
-  if (!mesh) mesh = std::make_unique<ppgso::Mesh>(R"(C:\Users\tomas\Documents\FIIT\5.semester\ppgso\data\circle.obj)");
+  if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP(R"(C:\Users\tomas\Documents\FIIT\5.semester\ppgso\data\star_texture.bmp)"));
+  if (!mesh) mesh = std::make_unique<ppgso::Mesh>(R"(C:\Users\tomas\Documents\FIIT\5.semester\ppgso\data\star1.obj)");
 }
 
-bool CycleShadow::update(Scene &scene, float dt) {
+bool Star::update(Scene &scene, float dt) {
   // Count time alive
   age += dt;
 
@@ -39,19 +39,22 @@ bool CycleShadow::update(Scene &scene, float dt) {
     if (obj.get() == this)
       continue;
 
-    auto player = dynamic_cast<Player*>(obj.get());
-    if (!player) continue;
+    auto player1 = dynamic_cast<Player*>(obj.get());
+    auto player2 = dynamic_cast<Player2*>(obj.get());
+    if (!player1 && !player2) continue;
 
-    found = true;
-    position.x = player->position.x;
-    position.y = player->position.y;
-    if (glm::length(player->direction.x) == 1.0f) {
-      scale = glm::vec3{.9f, .3f, .1f};
+    if (player1) {
+     found = true;
+     position.x = player1->position.x;
+     position.y = player1->position.y;
+     rotation.y += ppgso::PI * dt;
     }
-    else if (glm::length(player->direction.y) == 1.0f) {
-      scale = glm::vec3{.3f, .9f, .1f};
+    else {
+      found = true;
+      position.x = player2->position.x;
+      position.y = player2->position.y;
+      rotation.y += ppgso::PI * dt;
     }
-    break;
   }
 
   if (!found) return false;
@@ -62,7 +65,7 @@ bool CycleShadow::update(Scene &scene, float dt) {
   return true;
 }
 
-void CycleShadow::render(Scene &scene) {
+void Star::render(Scene &scene) {
   shader->use();
 
   // Set up light

@@ -1426,6 +1426,33 @@ src/gl9_scene/space.cpp.s:
 	$(MAKE) -f CMakeFiles\gl9_scene.dir\build.make CMakeFiles/gl9_scene.dir/src/gl9_scene/space.cpp.s
 .PHONY : src/gl9_scene/space.cpp.s
 
+src/gl9_scene/star.obj: src/gl9_scene/star.cpp.obj
+
+.PHONY : src/gl9_scene/star.obj
+
+# target to build an object file
+src/gl9_scene/star.cpp.obj:
+	$(MAKE) -f CMakeFiles\gl9_scene.dir\build.make CMakeFiles/gl9_scene.dir/src/gl9_scene/star.cpp.obj
+.PHONY : src/gl9_scene/star.cpp.obj
+
+src/gl9_scene/star.i: src/gl9_scene/star.cpp.i
+
+.PHONY : src/gl9_scene/star.i
+
+# target to preprocess a source file
+src/gl9_scene/star.cpp.i:
+	$(MAKE) -f CMakeFiles\gl9_scene.dir\build.make CMakeFiles/gl9_scene.dir/src/gl9_scene/star.cpp.i
+.PHONY : src/gl9_scene/star.cpp.i
+
+src/gl9_scene/star.s: src/gl9_scene/star.cpp.s
+
+.PHONY : src/gl9_scene/star.s
+
+# target to generate assembly for a file
+src/gl9_scene/star.cpp.s:
+	$(MAKE) -f CMakeFiles\gl9_scene.dir\build.make CMakeFiles/gl9_scene.dir/src/gl9_scene/star.cpp.s
+.PHONY : src/gl9_scene/star.cpp.s
+
 src/playground/playground.obj: src/playground/playground.cpp.obj
 
 .PHONY : src/playground/playground.obj
@@ -1893,6 +1920,9 @@ help:
 	@echo ... src/gl9_scene/space.obj
 	@echo ... src/gl9_scene/space.i
 	@echo ... src/gl9_scene/space.s
+	@echo ... src/gl9_scene/star.obj
+	@echo ... src/gl9_scene/star.i
+	@echo ... src/gl9_scene/star.s
 	@echo ... src/playground/playground.obj
 	@echo ... src/playground/playground.i
 	@echo ... src/playground/playground.s
